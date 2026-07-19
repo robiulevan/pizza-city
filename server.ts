@@ -929,8 +929,8 @@ const checkOutletAccess = (paramKey: string) => {
 // REST API ROUTES
 // ==========================================
 
-// POST /auth/login — authenticate user and issue JWT
-app.post("/auth/login", async (req, res) => {
+// POST /api/auth/login — authenticate user and issue JWT
+app.post("/api/auth/login", async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
     return res.status(400).json({ error: "Username and password are required." });
@@ -991,8 +991,8 @@ app.post("/auth/login", async (req, res) => {
   }
 });
 
-// POST /auth/refresh — issue new accessToken using refreshToken cookie
-app.post("/auth/refresh", async (req, res) => {
+// POST /api/auth/refresh — issue new accessToken using refreshToken cookie
+app.post("/api/auth/refresh", async (req, res) => {
   const refreshToken = getCookie(req, "refreshToken");
   if (!refreshToken) {
     return res.status(401).json({ error: "Refresh token required." });
